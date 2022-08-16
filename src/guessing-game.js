@@ -1,35 +1,19 @@
 class GuessingGame {
-    constructor(number) {
-        this.answer = number
-        this.solution = 0
-    }
-
+    constructor() {}
     setRange(min, max) {
-        this.min = min
-        this.max = max
+        this.max = max;
+        this.min = min;
     }
-
     guess() {
-        this.solution = Math.round((this.min + this.max) / 2)
-
-        if (this.solution < this.answer) {
-            greater()
-        } else if (this.solution > this.answer) {
-            lower()
-        } else {
-            return this.solution
-        }
+        this.count = Math.round((this.max - this.min) / 2 + this.min);
+        return this.count;
     }
-
     lower() {
-        this.max = this.solution
-        this.guess()
+        this.max = this.count;
     }
-
     greater() {
-        this.min = this.solution
-        this.guess()
+        this.min = this.count;
     }
 }
 
-module.exports = GuessingGame
+module.exports = GuessingGame;
